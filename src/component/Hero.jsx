@@ -1,8 +1,10 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+
+
 import { useState ,useRef, useEffect} from 'react';
 import Button from './button';
 import { TiLocationArrow } from 'react-icons/ti';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(1); 
@@ -10,14 +12,15 @@ const Hero = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedVideos, setLoadedVideos] = useState( 0);
   
-  const totalVideos = 4
+  const totalVideos = 4;
 
-  const nextVideoRef = useRef( null);
-
+  const nextVdRef = useRef(null);
+  //const currentVideoRef = useRef(null);
 
   const handleVideoLoad = () => {
     setLoadedVideos((prev) => prev + 1);
   } 
+  
   
 
   //0 % 4 = 0 + 1 => 1
@@ -33,6 +36,34 @@ const Hero = () => {
     setCurrentIndex ( upcomingVideoIndex);
   }
 
+  useGSAP( () => {
+    if(hasClicked){
+      gsap.set('#next-video',{visibility: 'visible'})
+
+      gsap.to('#next-video',{
+        transformOrigin: 'center center',
+        scale:1,
+        width: '100%',
+        height: '100%',
+        duration: 1,
+        //delay: 0.05,
+        ease: 'power1.inOut',
+        onStart: () => nextVdRef.current.play(),
+      })
+      gsap.from('#current-video',{
+        transformOrigin:'center center',
+        scale: 0,
+        duration: 1.5,
+        ease: 'power1.inOut'
+      })
+    }
+  },
+  {
+    dependencies: [currentIndex],
+    revertOnUpdate: true,
+  }
+);
+
   const getVideoSrc =(index) => `../videos/hero-${index}.mp4`;
 
 
@@ -45,7 +76,7 @@ const Hero = () => {
               <div onClick={handleMiniVdClick} 
               className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:opacity-100 hover:scale-100 '>
                 <video
-                  ref={nextVideoRef} 
+                  ref={nextVdRef} 
                   src= {getVideoSrc(upcomingVideoIndex)}
                   loop
                   muted
@@ -57,7 +88,7 @@ const Hero = () => {
             </div>
 
           <video
-            ref={nextVideoRef}
+            ref={nextVdRef}
             src={getVideoSrc(currentIndex)}
             loop
             muted
@@ -68,7 +99,7 @@ const Hero = () => {
 
           <video
           
-            src={getVideoSrc(currentIndex === totalVideos + 1 ? 1 : currentIndex)}
+            src={getVideoSrc(currentIndex === totalVideos - 1 ? 1 : currentIndex)}
             autoPlay
             loop
             muted
