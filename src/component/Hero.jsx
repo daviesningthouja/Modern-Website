@@ -5,7 +5,7 @@ import Button from './button';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -73,23 +73,51 @@ const Hero = () => {
   }
 );
 
-  useGSAP( () => {
-    gsap.set('#video-frame',{
-      clipPath: 'polygon(14% 0%, 72% 0%, 88% 87%, 2% 95%)',
-      borderRadius: '0% 0% 50% 20% / 0% 0% 35% 35%',
-    })
-    gsap.from('#video-frame',{
+
+useGSAP( () => {
+  gsap.set('#video-frame', {
+    clipPath: 'polygon(14% 0%, 82% 0%, 83% 90%, 3% 92%)',
+    borderRadius: '0% 0% 20% 20%',
+  });
+
+  gsap.fromTo(
+    '#video-frame',
+    {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       borderRadius: '0% 0% 0% 0%',
+    },
+    {
+      // clipPath: 'polygon(14% 0%, 82% 0%, 77% 90%, 4% 75%)',
+      clipPath: 'polygon(14% 0%, 65% 0%, 77% 80%, 4% 75%)',
+      borderRadius: '0% 0% 50% 30%',
       ease: 'power1.inOut',
-      scrollTrigger:{
-        trigger: 'video-frame',
-        start: 'center bottom',
-        end: 'center top',
+      duration: 3.5,
+      scrollTrigger: {
+        trigger: '#video-frame',
+        start: 'center center',
+        end: 'bottom top',
         scrub: true,
-      }
+        reverse: true,
+      },
     })
-  })
+})
+  //  useGSAP( () => {
+  //    gsap.set('#video-frame',{
+  //      clipPath: 'polygon(14% 0%, 72% 0%, 88% 87%, 2% 55%)',
+  //      borderRadius: '0% 0% 50% 20%',
+  //    })
+  //    gsap.from('#video-frame',{
+  //      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+  //      borderRadius: '0% 0% 0% 0%',
+  //      ease: 'power1.inOut',
+  //      scrollTrigger:{
+  //        trigger: '#video-frame',
+  //        start: 'center center',
+  //        end: 'bottom center',
+  //        scrub: true,
+  //     }
+  //    })
+  //  })
 
   const getVideoSrc =(index) => `../videos/hero-${index}.mp4`;
 
@@ -149,7 +177,7 @@ const Hero = () => {
           G<b>A</b>MING
         </h1>
         <div className='absolute left-0 top-0 z-40 size-full'>
-          <div className='mt-24 px-5 sm:px-10'>
+          <div className='mt-20 px-5 sm:px-8'>
             <h1 className='special-font hero-heading text-blue-75'>redefi<b>n</b>e</h1>
             <p className='mb-5 max-w-64 font-robert-regular text-blue-100'> Enter the Metagame Layer<br/> Unleash the Play Economy</p>
 
