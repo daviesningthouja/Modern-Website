@@ -34,7 +34,7 @@ const About = () => {
             Disc<b>o</b>ver the world's<br /> l<b>a</b>rgest shared <b>a</b>dventure
         </div>
 
-        <div className='about-subtext centere-img '>
+        <div className='about-subtext centere-img text-[0.9rem] leading-[1.55rem]'>
             <p>The Game of Games begins-your life, now an epic MMORPG</p>
             <p>Zentry unites every player from countless games and platforms</p>
         </div>

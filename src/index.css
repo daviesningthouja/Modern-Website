@@ -91,7 +91,8 @@ body{
       .about-subtext {
         /* //left-1/2  */
         /* bottom-[-50dvh] */
-        @apply absolute bottom-[150dvh]  w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
+        /* text-lg  */
+        @apply absolute bottom-[150dvh]  w-full max-w-96 -translate-x-1/2 text-center font-circular-web md:max-w-[34rem];
       }
       @media (max-width: 640px) {
         .about-subtext {
