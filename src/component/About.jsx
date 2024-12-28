@@ -11,7 +11,7 @@ const About = () => {
             trigger: '#clip',
             start: 'center center',
             end: '+=800 center',
-            scrub: 0.5,
+            scrub: 0.9,
             pin: true,
             pinSpacing: true,
           }
@@ -30,24 +30,23 @@ const About = () => {
             Welcome to Zentry
         </h2>
 
-        <div className='mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[6rem]'>
+        <div className='mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[4rem]'>
             Disc<b>o</b>ver the world's<br /> l<b>a</b>rgest shared <b>a</b>dventure
         </div>
 
-        <div className='about-subtext'>
+        <div className='about-subtext centere-img '>
             <p>The Game of Games begins-your life, now an epic MMORPG</p>
             <p>Zentry unites every player from countless games and platforms</p>
         </div>
       </div>
 
-      <div className='h-dvh w-screen' id='clip'>
-        <div className='mask-clip-path about-image'>
-            <img 
-            src="img/about.webp" 
+      <div className="h-dvh w-screen" id="clip">
+        <div className="mask-clip-path about-image center-img">
+          <img
+            src="img/about.webp"
             alt="Background"
-            className='absolute left-0 top-0 size-full object-cover'
-            />
-
+            className="absolute left-0 top-0 size-full object-cover "
+          />
         </div>
       </div>
     
