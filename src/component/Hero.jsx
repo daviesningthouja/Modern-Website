@@ -140,7 +140,7 @@ useGSAP( () => {
         <div>
             <div className='mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg'>
               <div onClick={handleMiniVdClick} 
-              className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:opacity-100 hover:scale-100 '>
+              className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100 '>
                 <video
                   ref={nextVdRef} 
                   src= {getVideoSrc(upcomingVideoIndex)}
@@ -179,12 +179,12 @@ useGSAP( () => {
         <div className='absolute left-0 top-0 z-40 size-full'>
           <div className='mt-20 px-5 sm:px-8'>
             <h1 className='special-font hero-heading text-blue-75'>redefi<b>n</b>e</h1>
-            <p className='mb-5 max-w-64 font-robert-regular text-blue-100'> Enter the Metagame Layer<br/> Unleash the Play Economy</p>
+            <p className='mb-5 max-w-64 font-robert-regular text-[14px] leading-[16px] text-blue-100'> Enter the Metagame <br/> Unleash the Play Economy</p>
 
           <Button 
           id="watch-trailer" 
           title="Watch Trailer"  
-          leftIcon={<TiLocationArrow/>} containerClass="!bg-yellow-300 flex-center gap-1"
+          leftIcon={<TiLocationArrow/>} containerClass="!bg-yellow-300 font-bold flex-center  py-[8px] pl-[13px] pr-[11px] gap-1"
            />
 
 

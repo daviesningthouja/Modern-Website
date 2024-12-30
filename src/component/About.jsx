@@ -1,4 +1,5 @@
-import React from 'react'
+// eslint-disable-next-line no-unused-vars
+import React, { useRef ,useEffect} from 'react'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/all';
@@ -6,6 +7,44 @@ import AnimatedTitle from './AnimatedTitle';
 gsap.registerPlugin(ScrollTrigger)
 
 const About = () => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+        if (textRef.current) {
+            const text = textRef.current.textContent;
+            textRef.current.innerHTML = ""; // Clear original text
+
+            // Split text into individual characters and wrap in spans
+            text.split("").forEach(char => {
+                const charSpan = document.createElement("span");
+                charSpan.classList.add("char");
+                charSpan.textContent = char;
+                textRef.current.appendChild(charSpan);
+            });
+
+            const chars = textRef.current.querySelectorAll(".char");
+
+            gsap.from(chars, {
+                duration: 0.5, // Adjust typing speed
+                opacity: 0,
+                y: 20,
+                stagger: 0.1, // Delay between each character
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: textRef.current,
+                    start: "top 80%", // Adjust when animation starts
+                    toggleActions: "restart none none reverse", // Play on enter, reverse on leave
+                    markers: false // Set to true for debugging scroll positions
+                }
+            });
+        }
+    }, textRef);
+
+    return () => ctx.revert();
+  }, []);
+
+
     useGSAP(() => {
         const clipAnimation = gsap.timeline ({
           scrollTrigger: {
@@ -23,11 +62,12 @@ const About = () => {
             borderRadius: 0,
         })
       })
+
   return (
     <div id='about' className='min-h-screen w-screen'>
-      <div className='ralative mb-8 mt-36 flex flex-col items-center gap-5'>
+      <div className='relative mb-8 mt-36 flex flex-col items-center gap-5'>
 
-        <h2 className='font-general text-sm uppercase md:text-[10px]'>
+        <h2 ref={textRef} className='font-general text-sm uppercase md:text-[10px]'>
             Welcome to Zentry
         </h2>
 
@@ -35,9 +75,9 @@ const About = () => {
         title="Disc<b>o</b>ver the world's l<b>a</b>rgest <br/> shared <b>a</b>dventure" 
         containerClass="mt-5 !text-black text-center"/>
 
-        <div className='about-subtext centere-img text-[0.9rem] leading-[1.55rem]'>
+        <div className='about-subtext '>
             <p>The Game of Games begins-your life, now an epic MMORPG</p>
-            <p>Zentry unites every player from countless games and platforms</p>
+            <p className='text-gray-500'>Zentry unites every player from countless games and platforms</p>
         </div>
       </div>
 
