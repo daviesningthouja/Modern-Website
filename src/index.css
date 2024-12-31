@@ -28,6 +28,15 @@ body{
     @apply relative col-span-1 row-span-1 overflow-hidden rounded-md transition-transform duration-300 ease-out;
   }
 
+  
+  .arrowIcon{
+    @apply m-5 self-end absolute bottom-[27px];
+  }
+  @media (min-width: 768px) { /* Adjust breakpoint as needed */
+    .arrowIcon {
+      scale: (5); /* Increase size by 20% */
+    }
+  }
 
     .hero-heading {
       
@@ -43,7 +52,9 @@ body{
       @apply absolute bottom-[-90dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem];
     }
   
-    
+    .bento-title {
+      @apply uppercase md:text-6xl text-4xl font-black font-zentry;
+    }
     @font-face{
         font-family: 'circular-web';
         src: url('/fonts/circularweb-book.woff2') format('woff2');
@@ -138,7 +149,7 @@ body{
         transform-origin: 50% 50% -150px !important;
         will-change: opacity, transform;
       }
-    
+     
       .bento-tilt_1 {
         @apply relative border-hsla col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
       }
@@ -147,8 +158,13 @@ body{
         @apply relative col-span-1 row-span-1 overflow-hidden rounded-md transition-transform duration-300 ease-out;
       }
     
-      .bento-title {
-        @apply uppercase md:text-6xl text-4xl font-black font-zentry;
+      .arrowIcon{
+        @apply m-5 self-end ;
+      }
+      @media (min-width: 768px) { /* Adjust breakpoint as needed */
+        .arrowIcon {
+          transform: scale(1.2); /* Increase size by 20% */
+        }
       }
     
       .story-img-container {
