@@ -26,7 +26,7 @@ const About = () => {
             const chars = textRef.current.querySelectorAll(".char");
 
             gsap.from(chars, {
-                duration: 0.5, // Adjust typing speed
+                duration: 0, // Adjust typing speed
                 opacity: 0,
                 y: 20,
                 stagger: 0.1, // Delay between each character

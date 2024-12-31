@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -17,6 +17,7 @@ const AnimatedTitle = ({title, containerClass}) => {
             });
 
             titleAnimation.to('.animated-word',{
+                transitionDuration: 0.1,
                 opacity:1,
                 transform: 'translate3d( 0, 0, 0) rotateY(0deg) rotateX(0deg)',
                 ease: 'power2.out',

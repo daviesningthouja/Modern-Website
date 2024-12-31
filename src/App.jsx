@@ -3,12 +3,14 @@ import React from 'react'
 import Hero from './component/Hero.jsx'
 import About from './component/About.jsx'
 import Navbar from './component/Navbar.jsx'
+import Feature from './component/Feature.jsx'
 const App = () => {
   return (
     <main className='relative min-h-screen w-screen overflow-x-hidden'>
     <Navbar/>
     <Hero/> 
     <About/>
+    <Feature/>
     {/* className='z-0 min-h-screen bg-blue-500'/> */}
     </main>
   )
