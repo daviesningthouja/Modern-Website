@@ -26,15 +26,16 @@ const About = () => {
             const chars = textRef.current.querySelectorAll(".char");
 
             gsap.from(chars, {
-                duration: 0, // Adjust typing speed
+                duration: 0.1, // Adjust typing speed
                 opacity: 0,
                 y: 20,
                 stagger: 0.1, // Delay between each character
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: textRef.current,
-                    start: "top 80%", // Adjust when animation starts
-                    toggleActions: "restart none none reverse", // Play on enter, reverse on leave
+                    start: "bottom 80%", // Adjust when animation starts
+                    toggleActions: "play none none reverse", // Play on enter, reverse on leave
+                    //scrub: 0.1,
                     markers: false // Set to true for debugging scroll positions
                 }
             });
