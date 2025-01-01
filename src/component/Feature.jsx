@@ -146,7 +146,7 @@ const Feature = () => {
           </BentoTilt>
         </div>
       </div>
-      <section className='m-72 h-[145dvh]'></section>
+      {/* <section className='m-72 h-[145dvh]'></section> */}
     </section>
   )
 }
