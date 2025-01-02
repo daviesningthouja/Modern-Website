@@ -73,14 +73,48 @@ body{
   
     .story-img-mask {
       @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
-      clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+      /* clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%); */
+      /* clip-path: polygon(0 21%, 87% 23%, 100% 77%, 8% 91%); */
+      clip-path: polygon(0% 0%,70% 13%,100% 66%,3% 100%);
+
     }
   
     .story-img-content {
       @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
-      transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
+      transform: translate3d(0, 0, 0) rotateX() rotateY(0) rotateZ(0) scale(1);
     }
 
+    .screen-feature-b3{
+      @apply ms-[8rem];
+    }
+    .screen-feature-b4{
+      @apply me-[8rem];
+    }
+    .xs-story-txt{
+      @apply flex h-full w-fit flex-col items-center md:items-start;
+    }
+    .xs-contact-img{
+      @apply absolute -top-40 left-20 w-60 sm:top-1/2 md:left-auto md:right-10 lg:top-20 ;
+    }
+      @media (max-width: 450px) { /* Adjust breakpoint as needed */
+        .screen-feature-b3{
+          margin-left: 7rem;
+        }
+        .screen-feature-b4{
+          margin-right: 6rem;
+        }
+        .story-img-mask {
+          left: 47px;
+          clip-path: polygon(11% 11%, 79% 11%, 92% 74%, 19% 76%);;
+        }
+        .xs-story-txt{
+          margin-bottom: 6.5rem;
+          margin-top: -9rem;
+        }
+        .xs-contact-img{
+          top: -15rem;
+        }
+    }
 
     
 

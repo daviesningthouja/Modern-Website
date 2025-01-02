@@ -30,7 +30,11 @@ export default {
           100: '#8E983F',
           300: '#EDFF66',
         }
-      }
+      },
+      screens: {
+        xs: '450px', // Custom for 400px and above
+        smPlus: '500px', // Custom for 500px and above
+      },
     },
   },
   plugins: [],
